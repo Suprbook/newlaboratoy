@@ -37,6 +37,10 @@ function App() {
     filteredProducts.sort((first, second) => second.price - first.price);
   }
 
+  useEffect(() => {
+    document.title = `CvSU Mini Store (${filteredProducts.length} results)`;
+  }, [filteredProducts.length]);
+
   const handleAddToCart = (title) => {
     setCartCount((count) => count + 1);
     setLastAdded(title);
@@ -73,20 +77,30 @@ function App() {
         }}
       />
 
-      <div className="product-grid">
-        {filteredProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            title={product.title}
-            price={product.price}
-            category={product.category}
-            inStock={product.inStock}
-            onAddToCart={handleAddToCart}
-          >
-            {product.badge && <span>{product.badge}</span>}
-          </ProductCard>
-        ))}
-      </div>
+      <p className="results-count" aria-live="polite">
+        Showing {filteredProducts.length} of {products.length} products
+      </p>
+
+      {filteredProducts.length > 0 ? (
+        <div className="product-grid">
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              price={product.price}
+              category={product.category}
+              inStock={product.inStock}
+              onAddToCart={handleAddToCart}
+            >
+              {product.badge && <span>{product.badge}</span>}
+            </ProductCard>
+          ))}
+        </div>
+      ) : (
+        <p className="empty-state" role="status">
+          No products found. Try a different keyword or category.
+        </p>
+      )}
     </div>
   );
 }
