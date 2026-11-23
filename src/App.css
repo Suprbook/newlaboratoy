@@ -1,15 +1,15 @@
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 85% 5%, rgba(67, 97, 238, 0.12), transparent 24rem),
-    #eef0f5;
-  color: #171923;
+    radial-gradient(circle at 90% 0%, rgba(94, 159, 108, 0.1), transparent 25rem),
+    linear-gradient(180deg, #f1f8f2 0, var(--color-page) 28rem);
+  color: var(--color-ink);
 }
 
 .app {
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: 2.25rem 1.5rem 4rem;
 }
 
 .app-header {
@@ -17,21 +17,21 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 150px;
-  margin-bottom: 1.5rem;
+  min-height: 166px;
+  margin-bottom: 1.25rem;
   padding: 2rem 2.25rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
+  border: 1px solid #d6e8d9;
+  border-radius: 24px;
   background:
-    linear-gradient(120deg, rgba(67, 97, 238, 0.18), transparent 48%),
-    #171923;
-  box-shadow: 0 18px 45px rgba(23, 25, 35, 0.16);
+    radial-gradient(ellipse at 90% 15%, rgba(171, 210, 146, 0.25), transparent 22rem),
+    linear-gradient(115deg, #e7f4e8 0%, #f5faf2 58%, #edf6e9 100%);
+  box-shadow: 0 14px 36px rgba(46, 103, 63, 0.08);
 }
 
 .app-header h1 {
   margin: 0.25rem 0 0;
-  color: #ffffff;
+  color: #1d3928;
   font-size: clamp(2.1rem, 5vw, 3.5rem);
   line-height: 1;
   letter-spacing: -0.055em;
@@ -39,7 +39,7 @@ body {
 
 .store-eyebrow {
   margin: 0;
-  color: #98a8ff;
+  color: var(--color-green);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -48,23 +48,23 @@ body {
 .store-count {
   flex-shrink: 0;
   padding: 0.6rem 0.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid #d5e6d6;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  color: #d8dcf4;
+  background: rgba(255, 255, 255, 0.76);
+  color: #42634a;
   font-size: 0.78rem;
   font-weight: 700;
 }
 
 .cart-message {
   margin: 0 0 1.5rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid #dde1ea;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid #deebe0;
+  border-left: 4px solid #67a777;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.82);
-  color: #4b4f60;
-  box-shadow: 0 6px 20px rgba(23, 25, 35, 0.04);
-  backdrop-filter: blur(8px);
+  color: #42634a;
+  box-shadow: 0 5px 16px rgba(34, 76, 49, 0.04);
   font-weight: 700;
 }
 
@@ -76,29 +76,29 @@ body {
 
 .results-count {
   margin: 0 0 0.9rem 0.15rem;
-  color: #777d90;
+  color: var(--color-muted);
   font-size: 0.82rem;
   font-weight: 700;
 }
 
 .empty-state {
   padding: 2.5rem 1rem;
-  border: 1px dashed #cbd0df;
+  border: 1px dashed #cadbcd;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.6);
-  color: #69708a;
+  background: rgba(255, 255, 255, 0.72);
+  color: #66776c;
   text-align: center;
   font-weight: 650;
 }
 
 @media (max-width: 600px) {
   .app {
-    padding: 1rem 0.75rem 3rem;
+    padding: 1rem 0.85rem 3rem;
   }
 
   .app-header {
-    min-height: 125px;
-    padding: 1.5rem;
+    min-height: 135px;
+    padding: 1.5rem 1.25rem;
   }
 
   .store-count {
