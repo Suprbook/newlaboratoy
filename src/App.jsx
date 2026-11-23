@@ -16,7 +16,11 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>CvSU Mini Store</h1>
+        <div>
+          <p className="store-eyebrow">CVSU CAMPUS SHOP</p>
+          <h1>CvSU Mini Store</h1>
+        </div>
+        <span className="store-count">{products.length} products</span>
       </header>
 
       <p className="cart-message">

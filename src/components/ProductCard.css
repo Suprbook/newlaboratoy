@@ -1,20 +1,21 @@
 .product-card {
   display: flex;
   flex-direction: column;
-  min-height: 230px;
-  padding: 1.25rem;
-  border: 1px solid #dfe8e2;
-  border-radius: 12px;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(27, 94, 55, 0.08);
+  min-height: 250px;
+  padding: 1.35rem;
+  border: 1px solid #e0e3ec;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(23, 25, 35, 0.07);
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(27, 94, 55, 0.13);
+  border-color: #c9cfe8;
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(23, 25, 35, 0.12);
 }
 
 .card-heading {
@@ -26,7 +27,7 @@
 }
 
 .category {
-  color: #668072;
+  color: #69708a;
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -37,8 +38,8 @@
   display: inline-block;
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
-  background: #f9d875;
-  color: #654800;
+  background: #eef0ff;
+  color: #4354c7;
   font-size: 0.75rem;
   font-weight: 800;
 }
@@ -46,14 +47,14 @@
 .product-card h2 {
   margin: 0.75rem 0 0.35rem;
   font-size: 1.15rem;
-  color: #1f2a24;
+  color: #171923;
 }
 
 .price {
   margin: 0 0 0.75rem;
   font-size: 1.35rem;
   font-weight: 800;
-  color: #1b5e37;
+  color: #4354c7;
 }
 
 .stock-label {
@@ -66,39 +67,40 @@
 }
 
 .stock-label.in-stock {
-  background: #daf0e2;
-  color: #176b3a;
+  background: #e6f5ec;
+  color: #217447;
 }
 
 .stock-label.unavailable {
-  background: #eadede;
-  color: #7a4141;
+  background: #f1e7e9;
+  color: #87434c;
 }
 
 .add-to-cart {
   width: 100%;
   margin-top: auto;
   border: 0;
-  border-radius: 7px;
+  border-radius: 9px;
   padding: 0.75rem 1rem;
-  background: #1b5e37;
+  background: #4354c7;
   color: #ffffff;
   font-weight: 800;
   cursor: pointer;
 }
 
 .add-to-cart:hover:not(:disabled) {
-  background: #247648;
+  background: #3445ad;
+  box-shadow: 0 8px 18px rgba(67, 84, 199, 0.24);
 }
 
 .add-to-cart:disabled {
-  background: #adb6b0;
-  color: #eef1ef;
+  background: #d9dde4;
+  color: #8b919d;
   cursor: not-allowed;
 }
 
 .product-card.out-of-stock {
-  background: #f0f2f1;
-  opacity: 0.72;
-  filter: grayscale(35%);
+  background: #f2f3f6;
+  opacity: 0.68;
+  filter: grayscale(45%);
 }
