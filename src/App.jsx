@@ -1,13 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import products from "./data/products";
 import ProductCard from "./components/ProductCard";
+import SearchBar from "./components/SearchBar";
 import "./App.css";
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
   const [lastAdded, setLastAdded] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [category, setCategory] = useState("All");
+  const [sortOrder, setSortOrder] = useState("default");
 
-  // Callback passed down to every ProductCard
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchText);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchText]);
+
+  const searchKeyword = debouncedSearch.trim().toLowerCase();
+  const filteredProducts = [
+    ...products.filter((product) => {
+      const matchesSearch = product.title.toLowerCase().includes(searchKeyword);
+      const matchesCategory =
+        category === "All" || product.category === category;
+
+      return matchesSearch && matchesCategory;
+    }),
+  ];
+
+  if (sortOrder === "price-asc") {
+    filteredProducts.sort((first, second) => first.price - second.price);
+  } else if (sortOrder === "price-desc") {
+    filteredProducts.sort((first, second) => second.price - first.price);
+  }
+
   const handleAddToCart = (title) => {
     setCartCount((count) => count + 1);
     setLastAdded(title);
@@ -29,8 +58,23 @@ function App() {
           : `Items added to cart: ${cartCount} (Last added: ${lastAdded})`}
       </p>
 
+      <SearchBar
+        searchText={searchText}
+        onSearchChange={setSearchText}
+        category={category}
+        onCategoryChange={setCategory}
+        sortOrder={sortOrder}
+        onSortChange={setSortOrder}
+        onClearFilters={() => {
+          setSearchText("");
+          setDebouncedSearch("");
+          setCategory("All");
+          setSortOrder("default");
+        }}
+      />
+
       <div className="product-grid">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}
             title={product.title}
