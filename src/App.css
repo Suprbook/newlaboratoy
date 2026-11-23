@@ -1,0 +1,40 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f5f7f4;
+  color: #1f2a24;
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.app-header {
+  border-bottom: 3px solid #dfe8e2;
+  margin-bottom: 1.25rem;
+}
+
+.app-header h1 {
+  margin: 0 0 1rem;
+  color: #1b5e37;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.cart-message {
+  background: #e3f4ea;
+  border-left: 4px solid #1b5e37;
+  padding: 0.7rem 1rem;
+  border-radius: 4px;
+  margin: 0 0 1.25rem;
+  font-weight: 600;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
